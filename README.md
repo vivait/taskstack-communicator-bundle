@@ -28,7 +28,7 @@ In your bootstrap nav bar, add
     
     ...
    
-    {{ render(path('vivait_taskstack_communicator_index')) }}
+    {{ render(path('vivait_taskstack_communicator_panel')) }}
 
     ...
     
