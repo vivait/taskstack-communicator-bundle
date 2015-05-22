@@ -1,0 +1,7 @@
+vivait_taskstack_communicator_index:
+    path:     /communicator/index
+    defaults: { _controller: VivaitTaskstackCommunicatorBundle:Communicator:index }
+
+vivait_taskstack_communicator_create:
+    path:     /communicator/create
+    defaults: { _controller: VivaitTaskstackCommunicatorBundle:Communicator:create }

@@ -1,0 +1,16 @@
+services:
+    vivait_taskstack_communicator.form.type.issue:
+        class: Vivait\TaskstackCommunicatorBundle\Form\Type\IssueType
+        tags:
+          - { name: form.type, alias: 'taskstack_issue' }
+
+    vivait_taskstack_communicator.client.http.guzzle:
+        class: Vivait\TaskstackCommunicatorBundle\Client\Http\GuzzleAdapter
+        arguments: [@guzzle, %vivait_taskstack_communicator.url%]
+
+    vivait_taskstack_communicator.client.taskstack:
+        class: Vivait\TaskstackCommunicatorBundle\Client\TaskstackClient
+        arguments: [@vivait_taskstack_communicator.client.http.guzzle, %vivait_taskstack_communicator.api_key%]
+
+    guzzle:
+        class: GuzzleHttp\Client
