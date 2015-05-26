@@ -23,14 +23,11 @@ class VivaitTaskstackCommunicatorExtension extends ConfigurableExtension
      */
     protected function loadInternal(array $mergedConfig, ContainerBuilder $container)
     {
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('services.yml');
+        if (isset($mergedConfig['api_key'], $mergedConfig['url'])) {
+            $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+            $loader->load('services.yml');
 
-        if($mergedConfig['api_key']){
             $container->setParameter('vivait_taskstack_communicator.api_key', $mergedConfig['api_key']);
-        }
-
-        if($mergedConfig['url']){
             $container->setParameter('vivait_taskstack_communicator.url', $mergedConfig['url']);
         }
     }
