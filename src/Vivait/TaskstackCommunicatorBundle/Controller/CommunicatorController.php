@@ -12,6 +12,11 @@ class CommunicatorController extends Controller
 {
     public function indexAction(Request $request)
     {
+        //Check if bundle enabled
+        if(!$this->container->getParameter('vivait_taskstack_communicator')){
+            return new Response();
+        }
+        
         $form = $this->createIssueForm(new Issue());
 
         return $this->render(
