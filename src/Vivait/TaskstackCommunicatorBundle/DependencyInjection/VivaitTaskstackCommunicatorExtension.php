@@ -29,6 +29,9 @@ class VivaitTaskstackCommunicatorExtension extends ConfigurableExtension
 
             $container->setParameter('vivait_taskstack_communicator.api_key', $mergedConfig['api_key']);
             $container->setParameter('vivait_taskstack_communicator.url', $mergedConfig['url']);
+            $container->setParameter('vivait_taskstack_communicator', true);
+        } else {
+            $container->setParameter('vivait_taskstack_communicator', false);
         }
     }
 }
