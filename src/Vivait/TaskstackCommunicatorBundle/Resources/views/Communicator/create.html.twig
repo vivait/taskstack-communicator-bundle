@@ -7,59 +7,11 @@
 
         <div class="dropdown-menu" style="width: 500px; padding: 20px" id="taskstack-help-panel">
             <h4>Request help</h4>
-            <div id="loading"><i class="fa fa-circle-o-notch fa-spin"></i> Sending</div>
-            <div id="help-error" class="alert alert-danger alert-dark hide"></div>
-            <div id="help-form-container">
+            <div class="loading" style="display: none"><i class="fa fa-circle-o-notch fa-spin"></i> Sending</div>
+            <div class="help-error alert alert-danger alert-dark" style="display: none"></div>
+            <div class="help-form-container">
                 {% include 'VivaitTaskstackCommunicatorBundle:Communicator:form.html.twig' with {'form': form} %}
             </div>
         </div>
     </li>
-{% endblock %}
-
-
-{% block javascripts %}
-    <script>
-        var errorElement = $('#help-error');
-        var loadingElement = $('#loading');
-        var helpContainerElement = $('#help-form-container');
-
-        errorElement.hide();
-        loadingElement.hide();
-
-        $('body').on('submit', '.ajaxForm', function (e) {
-
-            e.preventDefault();
-            $.ajax({
-                type: $(this).attr('method'),
-                url: $(this).attr('action'),
-                data: $(this).serialize(),
-                beforeSend: function(){
-                    loadingElement.show()
-                    helpContainerElement.hide();
-                }
-            })
-
-            .always(function () {
-                helpContainerElement.show();
-                loadingElement.hide()
-            })
-            .done(function (data) {
-                errorElement.hide();
-                $('#help-form-container').html('<span id="taskstack-help-success"><i class="fa fa-check"></i> ' + data.message + '</span>');
-            })
-            .fail(function (jqXHR) {
-                if (jqXHR.responseJSON.hasOwnProperty('form')) {
-                    errorElement.show();
-                    $('#help-form-container').html(jqXHR.responseJSON.form);
-                }
-
-                if (jqXHR.responseJSON.hasOwnProperty('message')) {
-                    errorElement.show();
-                    errorElement.text(jqXHR.responseJSON.message);
-                }
-            });
-        });
-
-
-    </script>
 {% endblock %}
