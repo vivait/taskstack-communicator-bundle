@@ -3,7 +3,7 @@ var container            = $('#taskstack-help-button'),
     loadingElement       = $('.loading', container),
     helpContainerElement = $('.help-form-container', container);
 
-$('.ajaxForm', container).submit(function (e) {
+helpContainerElement.on('submit', 'form', function (e) {
     e.preventDefault();
     var $this = $(this);
 
