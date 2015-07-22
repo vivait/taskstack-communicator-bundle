@@ -12,6 +12,7 @@ helpContainerElement.on('submit', 'form', function (e) {
         url:        $this.attr('action'),
         data:       $this.serialize(),
         beforeSend: function () {
+            errorElement.hide();
             loadingElement.show();
             helpContainerElement.hide();
         }
@@ -21,7 +22,6 @@ helpContainerElement.on('submit', 'form', function (e) {
         loadingElement.hide()
     })
     .done(function (data) {
-        errorElement.hide();
         helpContainerElement.html('<span class="taskstack-help-success"><i class="fa fa-check"></i> ' + data.message + '</span>');
     })
     .fail(function (jqXHR) {
