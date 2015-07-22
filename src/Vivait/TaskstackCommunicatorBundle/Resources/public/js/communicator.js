@@ -5,7 +5,7 @@ var container            = $('#taskstack-help-button'),
 
 $('.ajaxForm', container).submit(function (e) {
     e.preventDefault();
-    var $this;
+    var $this = $(this);
 
     $.ajax({
         type:       $this.attr('method'),
