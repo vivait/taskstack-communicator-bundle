@@ -31,7 +31,8 @@ $('.ajaxForm', container).submit(function (e) {
             errorElement.show();
             helpContainerElement.html(responseJSON.form);
         }
-        else if (responseJSON.hasOwnProperty('message')) {
+
+        if (responseJSON.hasOwnProperty('message')) {
             errorElement.show();
             errorElement.text(responseJSON.message);
         }
