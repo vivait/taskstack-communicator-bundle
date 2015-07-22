@@ -21,7 +21,7 @@ vivait_taskstack_communicator:
 
 In your bootstrap nav bar, add 
 
-```php
+```twig
 
 <ul class="nav navbar-nav pull-right right-navbar-nav">
     <li>...</li>
@@ -34,4 +34,15 @@ In your bootstrap nav bar, add
     
     <li>...</li>
 </ul>
+```
+
+In a new or existing javascripts include add:
+
+```twig
+{% javascripts
+"@VivaitTaskstackCommunicatorBundle/Resources/public/js/communicator.js"
+%}
+
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
 ```
