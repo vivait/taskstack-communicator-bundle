@@ -14,3 +14,9 @@ services:
 
     guzzle:
         class: GuzzleHttp\Client
+
+    vivait_taskstackcommunicatorbundle.twig.helppanelextension:
+        class: Vivait\TaskstackCommunicatorBundle\Twig\HelpPanelExtension
+        arguments: [ @form.factory, @router ]
+        tags:
+            - { name: twig.extension }

@@ -1,4 +1,4 @@
-var container            = $('#taskstack-help-button'),
+var container            = $('#taskstack-help-panel'),
     errorElement         = $('.help-error', container),
     loadingElement       = $('.loading', container),
     helpContainerElement = $('.help-form-container', container);
@@ -28,13 +28,7 @@ helpContainerElement.on('submit', 'form', function (e) {
         var responseJSON = jqXHR.responseJSON;
 
         if (responseJSON.hasOwnProperty('form')) {
-            errorElement.show();
             helpContainerElement.html(responseJSON.form);
-        }
-
-        if (responseJSON.hasOwnProperty('message')) {
-            errorElement.show();
-            errorElement.text(responseJSON.message);
         }
     });
 });

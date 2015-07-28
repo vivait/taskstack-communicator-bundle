@@ -1,7 +1,3 @@
-vivait_taskstack_communicator_panel:
-    path:     /communicator/panel
-    defaults: { _controller: VivaitTaskstackCommunicatorBundle:Communicator:index }
-
 vivait_taskstack_communicator_create:
-    path:     /communicator/create
-    defaults: { _controller: VivaitTaskstackCommunicatorBundle:Communicator:create }
+    path:     /communicator/help/create
+    defaults: { _controller: VivaitTaskstackCommunicatorBundle:HelpPanel:create }
