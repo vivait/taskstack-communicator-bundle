@@ -1,0 +1,13 @@
+{% extends '::base.html.twig' %}
+
+{% block sectiontitle %}
+    Request Help
+{% endblock sectiontitle %}
+
+{% block section %}
+    <div class="panel panel-default">
+        <div class="panel-body">
+            {% include 'VivaitTaskstackCommunicatorBundle:HelpPanel:panel.html.twig' with {'form': form} %}
+        </div>
+    </div>
+{% endblock section %}

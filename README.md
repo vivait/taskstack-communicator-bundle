@@ -17,30 +17,21 @@ vivait_taskstack_communicator:
     url: http://mycompany.taskstack.uk
 ```
 
-## Usage
+## Help Form
 
-In your bootstrap nav bar, add 
+Add a help form to your web page.
+
+Simply call the twig extension to render the help form
 
 ```twig
-
-<ul class="nav navbar-nav pull-right right-navbar-nav">
-    <li>...</li>
-    
-    ...
-   
-    {{ render(path('vivait_taskstack_communicator_panel')) }}
-
-    ...
-    
-    <li>...</li>
-</ul>
+{{ communicator_help_panel() }}
 ```
 
-In a new or existing javascripts include add:
+To allow the form to submit via AJAX, add the javascript:
 
 ```twig
 {% javascripts
-"@VivaitTaskstackCommunicatorBundle/Resources/public/js/communicator.js"
+"@VivaitTaskstackCommunicatorBundle/Resources/public/js/helpPanel.js"
 %}
 
 <script type="text/javascript" src="{{ asset_url }}"></script>
