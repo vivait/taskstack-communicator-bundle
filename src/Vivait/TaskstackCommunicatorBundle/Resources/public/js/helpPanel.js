@@ -1,5 +1,4 @@
 var container            = $('#taskstack-help-panel'),
-    errorElement         = $('.help-error', container),
     loadingElement       = $('.loading', container),
     helpContainerElement = $('.help-form-container', container);
 
@@ -12,7 +11,6 @@ helpContainerElement.on('submit', 'form', function (e) {
         url:        $this.attr('action'),
         data:       $this.serialize(),
         beforeSend: function () {
-            errorElement.hide();
             loadingElement.show();
             helpContainerElement.hide();
         }
