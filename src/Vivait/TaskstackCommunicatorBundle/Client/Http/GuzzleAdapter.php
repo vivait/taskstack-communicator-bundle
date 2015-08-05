@@ -27,7 +27,7 @@ class GuzzleAdapter implements HttpAdapter
     public function __construct(ClientInterface $guzzle, $url)
     {
         $this->guzzle = $guzzle;
-        $this->url = $url;
+        $this->setUrl($url);
     }
 
     /**
@@ -88,6 +88,7 @@ class GuzzleAdapter implements HttpAdapter
      */
     public function setUrl($url)
     {
-        // TODO: Implement setUrl() method.
+        $this->url = $url . ((substr_compare($url, '/', -1) === 0) ? '' : '/');
+        return $this;
     }
 }
