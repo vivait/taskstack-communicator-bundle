@@ -1,4 +1,4 @@
-# TaskStack Communicator
+# TaskStack Communicator [![Build Status](https://travis-ci.org/vivait/taskstack-communicator-bundle.svg?branch=master)](https://travis-ci.org/vivait/taskstack-communicator-bundle)
 
 Send issues direct from a symfony app directly to an instance of TaskStack.
 
