@@ -31,6 +31,9 @@ class HelpPanelController extends Controller
 
                 return $this->successResponse($request, $form);
             } catch (HttpException $e) {
+                // Trigger a warning so we can at least debug it
+                trigger_error('Could not submit form: '. $e->getMessage(), E_USER_WARNING);
+
                 return $this->errorResponse($request, $form, "There was a problem submitting the form, please try again.");
             }
         }
