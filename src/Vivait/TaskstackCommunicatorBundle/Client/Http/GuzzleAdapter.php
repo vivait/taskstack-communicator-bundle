@@ -5,7 +5,6 @@ namespace Vivait\TaskstackCommunicatorBundle\Client\Http;
 
 
 use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\TransferException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
@@ -69,16 +68,13 @@ class GuzzleAdapter implements HttpAdapter
         try {
             $response = $this->guzzle->$method($this->url . $resource, $options);
 
-//            var_dump(json_decode((string)$response->getBody(), true));
             return json_decode((string)$response->getBody(), true);
-        } catch (RequestException $e) {
+        } catch (TransferException $e) {
             if (($e->getCode() == 401 || $e->getCode() == 403) && $e->hasResponse()) {
                 throw new HttpException($e->getCode(), $e->getMessage());
             } else {
                 throw new HttpException($e->getCode(), $e->getMessage());
             }
-        } catch (TransferException $e) {
-            var_dump($e->getMessage());
         }
     }
 
