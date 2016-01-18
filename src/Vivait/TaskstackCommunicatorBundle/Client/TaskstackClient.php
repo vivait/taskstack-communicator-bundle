@@ -71,7 +71,7 @@ class TaskstackClient implements TaskstackClientInterface
             $user = $this->createUser($user);
         }
 
-        return $this->post('api/issues', [
+        return $this->post('api/tasks', [
             'subject' => $issue->getSubject(),
             'description' => $issue->getDescription(),
             'requester' => $user['username'],
