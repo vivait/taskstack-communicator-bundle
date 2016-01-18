@@ -55,7 +55,7 @@ class TaskstackClientSpec extends ObjectBehavior
         ]);
 
         $http->post(
-            'api/issues',
+            'api/tasks',
             [
                 'subject' => 'The issue subject',
                 'description' => 'The description of the issue',
@@ -115,7 +115,7 @@ class TaskstackClientSpec extends ObjectBehavior
             );
 
         $http->post(
-            'api/issues',
+            'api/tasks',
             [
                 'subject' => 'The issue subject',
                 'description' => 'The description of the issue',
